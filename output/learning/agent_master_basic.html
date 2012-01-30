@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Documentation | Puppet Labs - Learning — Basic Agent/Master Puppet</title>
+  	<meta name="description" content="The open source leader in data center automation">
+  	<link rel="alternate" type="text/xml" title="Puppet Labs RSS 0.92 Feed" href="http://puppetlabs.com/feed/rss/">
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Atom Feed" href="http://puppetlabs.com/feed/atom/">
+  	<link rel="alternate" type="application/rss+xml" title="Puppet Labs RSS 2.0 Feed" href="http://puppetlabs.com/feed/">
+  	<link rel="pingback" href="http://puppetlabs.com/xmlrpc.php">
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://puppetlabs.com/xmlrpc.php?rsd" />
+    <link rel='index' title='Puppet Labs' href='http://docs.puppetlabs.com' />
+
+<!-- Google analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1537572-5']);
+  _gaq.push(['_setDomainName', 'puppetlabs.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+</script>
+<!-- End Google analytics -->
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='/files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='/files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='/files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='/files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='/files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='/files/javascripts/ampersands.js'></script>
+
+     <!--Add rotation jQuery Script -->
+	 	
+    <script type='text/javascript' src='/files/javascripts/addRotate.js'></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <link rel="canonical" href="http://docs.puppetlabs.com" />
+    <!-- /all in one seo pack -->
+	
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="/files/stylesheets/style.css" media="screen"> 
+    <link rel="stylesheet" type="text/css" href="/files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="/files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="/files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+  
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="/files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->		
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+        
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>		
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->		
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://www.puppetlabs.com/puppet/">
+              <span>Products</span>
+
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>            
+              <li>
+                <ul>
+<li class="page_item page-item-769"><a href="http://www.puppetlabs.com/puppet/puppet-enterprise/" title="Puppet Enterprise">Puppet Enterprise</a></li>
+<li class="page_item page-item-757"><a href="http://www.puppetlabs.com/puppet/introduction/" title="Puppet">Puppet</a></li>
+<li class="page_item page-item-956"><a href="http://www.puppetlabs.com/puppet/how-to-buy/" title="How to Buy">How to Buy</a></li>
+<li class="page_item page-item-1159"><a href="http://forge.puppetlabs.com/" title="Module Forge">Module Forge</a></li>
+
+<li class="page_item page-item-2415"><a href="http://www.puppetlabs.com/mcollective/introduction/" title="MCollective">MCollective</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://www.puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://www.puppetlabs.com/services/overview/" title="Overview">Overview</a></li>
+<li class="page_item page-item-839"><a href="http://www.puppetlabs.com/services/support/" title="Enterprise Support">Enterprise Support</a></li>
+<li class="page_item page-item-845"><a href="http://www.puppetlabs.com/services/training-workshops/" title="On-Site Training &amp; Consulting">On-Site Training &amp; Consulting</a></li>
+<li class="page_item page-item-849"><a href="/category/events/upcoming/" title="Events &amp; Public Training">Events &amp; Public Training</a></li>
+<li class="page_item page-item-851"><a href="http://www.puppetlabs.com/services/partners/" title="Partners">Partners</a></li>
+<li class="page_item page-item-1037"><a href="/resources/customer-support" title="Customer Support">Customer Support</a></li>
+            </ul>
+          </li>
+          <li id="resources-tab" class="with-submenu">
+            <a href="http://www.puppetlabs.com/resources/">
+              <span>Resources</span>
+
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://www.puppetlabs.com/resources/overview-2/" title="Overview">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://www.puppetlabs.com/resources/customer-support/" title="Customer Support">Customer Support</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com" title="Documentation">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download" title="Downloads">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com" title="Module Forge">Module Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/request-whitepapers.html" title="White Papers">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki" title="Wiki">Wiki</a></li>
+            </ul>
+
+          </li>
+
+<li id="customer-tab" class="with-submenu">
+            <a href="http://www.puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://www.puppetlabs.com/customers/companies/" title="Overview">Companies</a></li>
+<li class="page_item page-item-1052"><a href="http://www.puppetlabs.com/customers/case-studies/" title="Case Studies">Case Studies</a></li>
+<li class="page_item page-item-1040"><a href="http://www.puppetlabs.com/customers/product-testimonials/" title="Product Testimonials">Product Testimonials</a></li>
+<li class="page_item page-item-872"><a href="http://www.puppetlabs.com/customers/what-customers-are-saying/" title="ervice Testimonials">Service Testimonials</a></li>
+	</ul>
+          </li>
+         <li id="community-tab" class="with-submenu">
+            <a href="http://www.puppetlabs.com/community/">
+              <span>Community</span>
+
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2195"><a href="http://www.puppetlabs.com/community/overview/" title="Overview">Overview</a></li>
+<li class="page_item page-item-2195"><a href="http://www.puppetlabs.com/blog" title="Blog">Blog</a></li>
+<li class="page_item page-item-2264"><a href="http://www.puppetlabs.com/community/puppet-camp/" title="Puppet Camp">Puppet Camp</a></li>
+<li class="page_item page-item-2249"><a href="http://www.puppetlabs.com/community/user-groups-and-devops-groups/" title="User Groups &amp; DevOps Groups">User Groups &amp; DevOps Groups</a></li>
+<li class="page_item page-item-2215"><a href="http://www.puppetlabs.com/community/presentations/" title="Presentations">Presentations</a></li>
+
+<li class="page_item page-item-2217"><a href="http://www.puppetlabs.com/community/videos/" title="Videos">Videos</a></li>
+<li class="page_item page-item-2217"><a href="http://www.puppetlabs.com/community/badges/" title="Badges">Badges</a></li>
+            </ul>
+          </li>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://www.puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://www.puppetlabs.com/company/overview/" title="Overview">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://www.puppetlabs.com/company/news/" title="News">News</a></li>
+<li class="page_item page-item-1571"><a href="http://www.puppetlabs.com/company/jobs/" title="Jobs">Jobs</a></li>
+<li class="page_item page-item-2313"><a href="http://www.puppetlabs.com/company/contact-us/" title="Contact Us">Contact Us</a></li>
+            </ul>
+          </li>
+    		</ul>	   
+          <div id="misc-navigation">
+
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+				<li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/#contact">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+
+			  <div>
+				<input type="hidden" name="cx" value="017884045025332504017:1mnj-dlgfcc" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+
+          </div>
+      </nav>
+    	</div>
+    </header>  
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Learning — Basic Agent/Master Puppet</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="/">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+               	            <dl>
+	              <dt>Puppet Guides</dt>
+                      <dd><a href="/index.html">Index</a></dd>
+                  <dt>Puppet References</dt>
+                      <dd><a href="/references/stable/type.html">Resource Types</a></dd>
+                      <dd><a href="/references/stable/function.html">Functions</a></dd>
+                      <dd><a href="/references/stable/metaparameter.html">Metaparameters</a></dd>
+                      <dd><a href="/references/stable/configuration.html">Configuration</a></dd>
+                      <dt>References By Version</dt>
+                      <dd><a href="/references/2.7.9/">2.7.9</a></dd>
+                      <dd><a href="/references/2.6.13/">2.6.13</a></dd>
+                      <dd><a href="/references/0.25.5/">0.25.5</a></dd>
+                      <dd><a href="/references/0.24.8/">0.24.8</a></dd>
+                      <dd><a href="/references/">Other Versions</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="/mcollective/index.html">Index</a></dd>
+                      <dd><a href="/mcollective/simplerpc/index.html">SimpleRPC</a></dd>
+                      <dd><a href="/mcollective/roadmap/index.html">Roadmap</a></dd>
+                      <dd><a href="/mcollective/releasenotes.html">Release Notes</a></dd>
+                      <dd><a href="/mcollective/reference/index.html">References</a></dd>
+	            </dl>
+
+            </li>
+            <li><a href="/contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+      </section>
+    
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              
+<h1 id="basic-agentmaster-puppet">Basic Agent/Master Puppet</h1>
+
+<p>This guide assumes that you&rsquo;ve followed <a href="./agentprep.html">the previous walkthrough</a>, and have a fresh agent VM that can reach your original master VM over the network. Both VMs should be running right now, and you&rsquo;ll need to be logged in to both of them as root.</p>
+
+<hr />
+
+<p>&larr; <a href="./agentprep.html">Preparing an Agent VM</a> &mdash; <a href="./">Index</a> &mdash; TBA &rarr;</p>
+
+<hr />
+
+<h2 id="introduction">Introduction</h2>
+
+<h3 id="how-do-agents-get-configurations">How Do Agents Get Configurations?</h3>
+
+<p>Puppet&rsquo;s agent/master mode is <strong>pull-based.</strong> Usually, agents are configured to periodically fetch a catalog and apply it, and the master controls what goes into that catalog. (For the next few exercises, though, you&rsquo;ll be triggering runs manually.) </p>
+
+<h3 id="what-do-agents-do-and-what-do-masters-do">What Do Agents Do, and What Do Masters Do?</h3>
+
+<p><a href="./manifests.html#an-aside-compilation">Earlier</a>, you saw this diagram of how Puppet compiles and applies a manifest:</p>
+
+<p><img src="./images/manifest_to_defined_state_unified.png" alt="Diagram of manifests being compiled into a catalog, which gets applied to enforce a defined system state." /></p>
+
+<p>Running Puppet in agent/master mode works much the same way &mdash; the main difference is that it moves the manifests and compilation to the puppet master server. Agents don&rsquo;t have to have see any manifest files at all, and have no access to configuration information that isn&rsquo;t in their own catalog. </p>
+
+<p><img src="./images/manifest_to_defined_state_split.png" alt="Diagram of an agent requesting a catalog, which gets compiled and served by a puppet master and applied by the agent" /></p>
+
+<h2 id="the-agent-subcommand">The Agent Subcommand</h2>
+
+<p>The puppet agent subcommand fetches configurations from a master server. It has two main modes:</p>
+
+<ol>
+  <li>Daemonize and fetch configurations every half-hour (default)</li>
+  <li>Run once and quit</li>
+</ol>
+
+<p>We&rsquo;ll be using the second mode, since it gives a better view of what&rsquo;s going on. To keep the agent from daemonizing, you should use the <code>--test</code> option, which also prints detailed descriptions of what the agent is doing. </p>
+
+<p>If you accidentally run the agent without <code>--test</code>, it will daemonize and run in the background. To check whether the agent is running in the background, run:</p>
+
+<pre><code># /etc/init.d/pe-puppet status
+</code></pre>
+
+<p>To turn it off, run:</p>
+
+<pre><code># /etc/init.d/pe-puppet stop
+</code></pre>
+
+<h2 id="saying-hi">Saying Hi</h2>
+
+<p>Time to start! <strong>On your agent VM,</strong> start puppet agent for the first time:</p>
+
+<pre><code>[root@agent1 ~]# puppet agent --test
+info: Creating a new SSL key for agent1.localdomain
+warning: peer certificate won't be verified in this SSL session
+info: Caching certificate for ca
+warning: peer certificate won't be verified in this SSL session
+warning: peer certificate won't be verified in this SSL session
+info: Creating a new SSL certificate request for agent1.localdomain
+info: Certificate Request fingerprint (md5): FD:E7:41:C9:2C:B7:5C:27:11:0C:8F:9C:1D:F6:F9:46
+warning: peer certificate won't be verified in this SSL session
+warning: peer certificate won't be verified in this SSL session
+warning: peer certificate won't be verified in this SSL session
+Exiting; no certificate found and waitforcert is disabled
+</code></pre>
+
+<p>Hmm. </p>
+
+<h3 id="what-happened">What Happened?</h3>
+
+<p>Puppet agent found the puppet master, but it got stopped at the certificate roadblock. It isn&rsquo;t authorized to fetch configurations, so the master is turning it away. </p>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+
+<p>It&rsquo;s possible you didn&rsquo;t see the response printed above, and there are a number of possible culprits. Read back over the <a href="./agentprep.html">instructions for creating your agent VM</a> and make sure you didn&rsquo;t miss anything; in particular, check that:</p>
+
+<ul>
+  <li>The VMs can ping each other</li>
+  <li>The agent can resolve the puppet master by host name</li>
+  <li>The agent&rsquo;s <code>/etc/puppetlabs/puppet/puppet.conf</code> file has a <code>server</code> setting (in the <code>[agent]</code> block) of <code>puppet</code> or <code>learn.localdomain</code></li>
+  <li>The VMs&rsquo; clocks are in sync</li>
+</ul>
+
+<h2 id="signing-the-certificate">Signing the Certificate</h2>
+
+<p>So we&rsquo;ll authorize it! <strong>On your puppet master VM,</strong> check the list of outstanding certificate requests with <code>puppet cert list</code>. (More about this command later.)</p>
+
+<pre><code>[root@learn ~]# puppet cert list
+  agent1.localdomain (FD:E7:41:C9:2C:B7:5C:27:11:0C:8F:9C:1D:F6:F9:46)
+</code></pre>
+
+<p><em>There&rsquo;s</em> our agent node. And the request fingerprint matches, too. You know this node is okay, so go ahead and sign its certificate with <code>puppet cert sign</code>:</p>
+
+<pre><code>[root@learn ~]# puppet cert sign agent1.localdomain
+notice: Signed certificate request for agent1.localdomain
+notice: Removing file Puppet::SSL::CertificateRequest agent1.localdomain at '/etc/puppetlabs/puppet/ssl/ca/requests/agent1.localdomain.pem'
+</code></pre>
+
+<p>Now that it&rsquo;s authorized, <strong>go back to the agent VM</strong> and run puppet agent again:</p>
+
+<pre><code>[root@agent1 ~]# puppet agent --test
+warning: peer certificate won't be verified in this SSL session
+info: Caching certificate for agent1.localdomain
+info: Retrieving plugin
+info: Caching certificate_revocation_list for ca
+info: Loading facts in facter_dot_d
+info: Loading facts in facter_dot_d
+info: Loading facts in facter_dot_d
+info: Loading facts in facter_dot_d
+info: Caching catalog for agent1.localdomain
+info: Applying configuration version '1326210629'
+notice: Finished catalog run in 0.11 seconds
+</code></pre>
+
+<p>It worked! That was a successful Puppet run, although it didn&rsquo;t do much yet.</p>
+
+<h3 id="what-happened-1">What Happened?</h3>
+
+<p>Puppet uses SSL certificates to protect communications between agents and the master. Since agents can&rsquo;t do a full run without a certificate, our agent had to ask for one and then wait for the request to get approved.</p>
+
+<p>We&rsquo;ll cover SSL in more detail later.</p>
+
+<h2 id="serving-a-real-configuration">Serving a Real Configuration</h2>
+
+<p>So how can we make the agent do something interesting? Well, we already built some useful classes, and they&rsquo;re all available on the puppet master, so we&rsquo;ll use them. (If you haven&rsquo;t already copied the modules from your old VM into your puppet master&rsquo;s <code>/etc/puppetlabs/puppet/modules</code> directory, do so now.)</p>
+
+<p>But how do we choose which classes go into an agent&rsquo;s catalog?</p>
+
+<h3 id="sitepp">Site.pp</h3>
+
+<p>When we were using puppet apply, we would usually specify a manifest file, which declared all of the classes or resources we wanted to apply. </p>
+
+<p>The puppet master works the same way, except that it <strong>always loads the same manifest file,</strong> which we usually refer to as site.pp. With Puppet Enterprise, it&rsquo;s located by default at <code>/etc/puppetlabs/puppet/manifests/site.pp</code>, but you can configure its location with <a href="/references/latest/configuration.html#manifest">the <code>manifest</code> setting</a>.</p>
+
+<p>You could declare classes and resources directly in site.pp, but that would make every node get the same resources in its catalog, which is of limited use. Instead, we&rsquo;ll hide the classes we want to declare in a <strong>node definition.</strong></p>
+
+<h3 id="node-definitions">Node Definitions</h3>
+
+<p>Node definitions work almost exactly like class definitions:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="c1"># Append this at the bottom of /etc/puppetlabs/puppet/manifests/site.pp</span>
+    
+    <span class="n">node</span> <span class="s1">&#39;agent1.localdomain&#39;</span> <span class="p">{</span>
+      
+      <span class="c1"># Note the quotes around the name! Node names can have characters that</span>
+      <span class="c1"># aren&#39;t legal for class names, so you can&#39;t always use bare, unquoted</span>
+      <span class="c1"># strings like we do with classes.</span>
+      
+      <span class="c1"># Any resource or class declaration can go inside here. For now:</span>
+      
+      <span class="kp">include</span> <span class="n">apache</span>
+      
+      <span class="k">class</span> <span class="p">{</span><span class="s1">&#39;ntp&#39;</span><span class="p">:</span> 
+        <span class="n">enable</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
+        <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">stopped</span><span class="p">,</span>
+      <span class="p">}</span>
+
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>But unlike classes, nodes are declared automatically, based on the <strong>name</strong> of the node whose catalog is being compiled. <strong>Only one</strong> node definition will get added to a given catalog, and any other node definitions are effectively hidden. </p>
+
+<p>An agent node&rsquo;s <strong>name</strong> is almost always read from its <a href="/references/latest/configuration.html#certname"><code>certname</code> setting</a>, which is set at install time but can be changed later. The certname is usually (but not always) the node&rsquo;s fully qualified domain name.</p>
+
+<p>More on node definitions later, as well as alternate ways to assign classes to a node.</p>
+
+<h3 id="pulling-the-new-configuration">Pulling the New Configuration</h3>
+
+<p>Now that you&rsquo;ve saved site.pp with a node definition that matches the agent VM&rsquo;s name, go back to that VM and run puppet agent again:</p>
+
+<pre><code>[root@agent1 ~]# puppet agent --test
+info: Retrieving plugin
+info: Loading facts in facter_dot_d
+info: Loading facts in facter_dot_d
+info: Loading facts in facter_dot_d
+info: Loading facts in facter_dot_d
+info: Caching catalog for agent1.localdomain
+info: Applying configuration version '1326416535'
+notice: /Stage[main]/Ntp/Package[ntp]/ensure: created
+--- /etc/ntp.conf	2011-11-18 13:21:25.000000000 +0000
++++ /tmp/puppet-file20120113-5967-56l9xy-0	2012-01-13 01:02:23.000000000 +0000
+@@ -14,6 +14,8 @@
+ 
+ # Use public servers from the pool.ntp.org project.
+ # Please consider joining the pool (http://www.pool.ntp.org/join.html).
++
++# Managed by puppet class { "ntp": servers =&gt; [ ... ] }
+ server 0.centos.pool.ntp.org
+ server 1.centos.pool.ntp.org
+ server 2.centos.pool.ntp.org
+info: /Stage[main]/Ntp/File[ntp.conf]: Filebucketed /etc/ntp.conf to main with sum 5baec8bdbf90f877a05f88ba99e63685
+notice: /Stage[main]/Ntp/File[ntp.conf]/content: content changed '{md5}5baec8bdbf90f877a05f88ba99e63685' to '{md5}35ea00fd40740faf3fd6d1708db6ad65'
+notice: /Stage[main]/Apache/Package[apache]/ensure: created
+notice: /Stage[main]/Apache/Service[apache]/ensure: ensure changed 'stopped' to 'running'
+info: ntp.conf: Scheduling refresh of Service[ntp]
+notice: /Stage[main]/Ntp/Service[ntp]: Triggered 'refresh' from 1 events
+notice: Finished catalog run in 32.74 seconds
+</code></pre>
+
+<p>Success! We&rsquo;ve pulled a configuration that actually does something.</p>
+
+<p>If you change this node&rsquo;s definition in site.pp, it will fetch that new configuration on its next run (which, in a normal environment, would happen less than 30 minutes after you make the change). </p>
+
+<h2 id="next">Next</h2>
+
+<p>You now know how to: </p>
+
+<ul>
+  <li>Run puppet agent interactively with <code>--test</code></li>
+  <li>Authorize a new agent node to pull configurations from the puppet master</li>
+  <li>Use node definitions in site.pp to choose which classes go into a given node&rsquo;s catalog</li>
+</ul>
+
+<p>But in the process of getting there, we glossed over some details. Next, <!-- [Next](./agent_master_explained.html), --> we&rsquo;ll talk more about certificates and node classification.</p>
+
+            </div>
+            <div class="secondary-content">
+                  <div id="subCol">
+                  
+                  
+                      <h3 class="chapter">Contents</h3>
+                      
+<ol class="toc">
+  <li class="toc-lv2"><a href="#introduction">Introduction</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#how-do-agents-get-configurations">How Do Agents Get Configurations?</a></li>
+   <li class="toc-lv3"><a href="#what-do-agents-do-and-what-do-masters-do">What Do Agents Do, and What Do Masters Do?</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#the-agent-subcommand">The Agent Subcommand</a></li>
+  <li class="toc-lv2"><a href="#saying-hi">Saying Hi</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#what-happened">What Happened?</a></li>
+   <li class="toc-lv3"><a href="#troubleshooting">Troubleshooting</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#signing-the-certificate">Signing the Certificate</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#what-happened-1">What Happened?</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#serving-a-real-configuration">Serving a Real Configuration</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#sitepp">Site.pp</a></li>
+   <li class="toc-lv3"><a href="#node-definitions">Node Definitions</a></li>
+   <li class="toc-lv3"><a href="#pulling-the-new-configuration">Pulling the New Configuration</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#next">Next</a></li>
+</ol>
+                  
+                                        <!-- New Ads are inserted here -->
+		  			<div id="bannerImage" style="display:block;">&nbsp;</div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>  
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+              
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+				
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+				
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+				
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+	
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+				
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+				
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+              
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+                
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>	
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+					
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>Written by James Turnbull and Jeff McCune, <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">411 NW Park Avenue</span>
+           /
+           <span class="locality">Portland</span>, 
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>          
+      </div>
+    </div>
+    <script src="http://munchkin.marketo.net/munchkin.js" type="text/javascript"></script> <script>mktoMunchkin("307-QLA-991");</script> 
+    
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+	</body>
+</html>        
